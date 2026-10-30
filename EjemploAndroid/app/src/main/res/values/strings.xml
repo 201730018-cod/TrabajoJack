@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">EjemploAndroid</string>
+    <string name="txt_mensaje">Esta es mi primra app</string>
+    <string name="txt_boton1">Click me</string>
+    <string name="mensaje">Mensaje</string>
+</resources>

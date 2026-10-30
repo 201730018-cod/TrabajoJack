@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CALCULADORA DE SUMAS</string>
+    <string name="calculadora_de_sumas">CALCULADORA DE SUMAS</string>
+    <string name="numero1">Numero1</string>
+    <string name="numero2">Numero2</string>
+    <string name="sumar">Sumar</string>
+</resources>
