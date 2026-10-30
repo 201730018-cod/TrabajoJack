@@ -50,6 +50,24 @@
         android:id="@+id/btnMensaje"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ver Mensaje" />
+        android:text="Ver Mensaje"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnOpinion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dar mi opinión (regresa resultado)"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:id="@+id/tvRespuesta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:text="Aquí aparecerá la respuesta de la otra pantalla" />
 
 </LinearLayout>

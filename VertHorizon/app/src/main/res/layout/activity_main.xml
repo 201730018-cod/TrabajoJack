@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#F2F2F2">
+
+    <TextView
+        android:id="@+id/tvOrientacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#2C3E50" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Hecho por Jack Brandon Espinosa"
+        android:textColor="#666666"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etTexto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Escribe un texto"
+        android:inputType="text"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnMostrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mostrar texto"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvTexto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:hint="Aquí aparece tu texto"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnContar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contar +1" />
+
+    <TextView
+        android:id="@+id/tvContador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#2C3E50"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ciclo de vida:"
+        android:textStyle="bold"
+        android:textColor="#2C3E50" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:id="@+id/tvBitacora"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:fontFamily="monospace"
+            android:textSize="14sp"
+            android:textColor="#333333" />
+    </ScrollView>
+
+</LinearLayout>

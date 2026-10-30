@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -19,6 +22,21 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     private EditText etNombre;
+    private TextView tvRespuesta;
+
+    private final ActivityResultLauncher<Intent> opinionLauncher =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+                Intent datos = result.getData();
+                if (result.getResultCode() == RESULT_OK && datos != null) {
+                    float estrellas = datos.getFloatExtra("estrellas", 0f);
+                    String comentario = datos.getStringExtra("comentario");
+                    if (comentario == null || comentario.isEmpty()) comentario = "Sin comentario";
+
+                    tvRespuesta.setText("Calificación recibida: " + (int) estrellas + " ⭐\n" + comentario);
+                } else {
+                    tvRespuesta.setText("No se envió ninguna opinión");
+                }
+            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         Button btnPerfil = findViewById(R.id.btnPerfil);
         Button btnProducto = findViewById(R.id.btnProducto);
         Button btnMensaje = findViewById(R.id.btnMensaje);
+        Button btnOpinion = findViewById(R.id.btnOpinion);
+        tvRespuesta = findViewById(R.id.tvRespuesta);
 
         // Botón 1: abre PerfilActivity y manda texto + número
         btnPerfil.setOnClickListener(v -> {
@@ -69,6 +89,15 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("mensaje", "Este texto viajó desde la pantalla principal dentro de un Intent.");
             intent.putExtra("hora", hora);
             startActivity(intent);
+        });
+
+        btnOpinion.setOnClickListener(v -> {
+            String nombre = obtenerNombre();
+            if (nombre == null) return;
+
+            Intent intent = new Intent(MainActivity.this, OpinionActivity.class);
+            intent.putExtra("nombre", nombre);
+            opinionLauncher.launch(intent);
         });
     }
 

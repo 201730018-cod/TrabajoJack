@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "FACERECOGNITION",
+    "slug": "FACERECOGNITION",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "La cámara se usa para detectar y reconocer rostros."
+      }
+    },
+    "android": {
+      "package": "com.jackbrandon.facerecognition",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": [
+        "android.permission.CAMERA"
+      ]
+    },
+    "plugins": [
+      "expo-dev-client",
+      [
+        "expo-media-library",
+        {
+          "savePhotosPermission": "La app guarda en tu galería las fotos que tomas.",
+          "granularPermissions": ["photo"]
+        }
+      ],
+      "./plugins/withModeloRostros"
+    ],
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

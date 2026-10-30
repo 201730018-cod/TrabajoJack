@@ -5,12 +5,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,14 +33,27 @@ public class MainActivity extends AppCompatActivity {
         sumar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int numero1 = Integer.valueOf(numero1.getText().toString());
-                int numero2 = Integer.valueOf(numero2.getText().toString());
-                int result = numero1
+                String texto1 = numero1.getText().toString().trim();
+                String texto2 = numero2.getText().toString().trim();
+
+                if (texto1.isEmpty() || texto2.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Escribe los dos números", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                int a;
+                int b;
+                try {
+                    a = Integer.parseInt(texto1);
+                    b = Integer.parseInt(texto2);
+                } catch (NumberFormatException e) {
+                    Toast.makeText(MainActivity.this, "Solo se permiten números enteros", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                int result = a + b;
+                resultado.setText("Resultado: " + result);
             }
         });
-
-
-
-
     }
 }
