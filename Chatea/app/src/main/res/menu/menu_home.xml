@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/accionBuscar"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Buscar mensajes"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/accionNuevoGrupo"
+        android:title="Nuevo grupo" />
+    <item
+        android:id="@+id/accionPerfil"
+        android:title="Mi perfil" />
+    <item
+        android:id="@+id/accionSesion"
+        android:title="Mi sesión (JWT)" />
+    <item
+        android:id="@+id/accionCerrarSesion"
+        android:title="Cerrar sesión" />
+</menu>
